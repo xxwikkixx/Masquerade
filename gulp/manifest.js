@@ -21,6 +21,11 @@ module.exports = function(gulp) {
       .pipe(gulp.dest(path.join(__dirname, '..', 'dist')));
   });
 
+  // Builds the application bundle
+  gulp.task('manifest:watch', 'Builds the application js bundle', function() {
+    gulp.watch(path.join(__dirname, '..', 'src', 'manifest.json'), ['manifest:copy']);
+  });
+
   // Catch-all js task
-  gulp.task('manifest', 'Perform all JS tasks', ['manifest:clean', 'manifest:copy']);
+  gulp.task('manifest', 'Perform all JS tasks', ['manifest:clean', 'manifest:copy', 'manifest:watch']);
 };

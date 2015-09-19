@@ -38,7 +38,7 @@ function bundleShare(b, gulp) {
   return b.bundle(handleBundlingComplete)
     .on('error', handleError)
     .pipe(source('content-script.js'))
-    .pipe(gulp.dest(path.join(__dirname, '..', 'dist')));
+    .pipe(gulp.dest(path.join(__dirname, '..', 'dist', 'js')));
 }
 
 /************************** GULP MODULE DEFINITION ***************************/
@@ -47,7 +47,7 @@ module.exports = function(gulp) {
   // Clears the js from the build directory
   gulp.task('js:clean', 'Clears compiled js from the build directory', function() {
     try {
-      fs.unlinkSync(path.join(__dirname, '..', 'dist', 'content-script.js'));
+      fs.unlinkSync(path.join(__dirname, '..', 'dist', 'js', 'content-script.js'));
     } catch(err) {
       // Swallow dat error
     }
@@ -77,7 +77,7 @@ module.exports = function(gulp) {
     // Bind error handler
     b.on('error', handleError);
     // The application entry point
-    b.add(path.join(__dirname, '..', 'src', 'js', 'content-script.js'));
+    b.add(path.join(__dirname, '..', 'src', 'js', 'main.js'));
     // Perform bundling
     return bundleShare(b, gulp);
   });
