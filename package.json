@@ -1,0 +1,31 @@
+{
+  "name": "you-ads",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xxwikkixx/YouAds.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xxwikkixx/YouAds/issues"
+  },
+  "homepage": "https://github.com/xxwikkixx/YouAds#readme",
+  "devDependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^11.1.0",
+    "gulp": "^3.9.0",
+    "gulp-help": "^1.6.1",
+    "gulp-util": "^3.0.6",
+    "rimraf": "^2.4.3",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.4.0"
+  }
+}
