@@ -39,7 +39,6 @@ export function waitForAdToShow() {
 }
 
 export function muteAd() {
-  debugger;
   if ($(VOLUME_PANEL_SELECTOR).attr('aria-valuetext').indexOf('muted') === -1) {
     $(MUTE_BUTTON_SELECTOR).click();
   }
