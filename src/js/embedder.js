@@ -24,13 +24,14 @@ export function embedOverlay(videoName) {
     overlay.style.left = 0;
     overlay.style.backgroundColor = 'black';
 
-    const iframe = document.createElement('iframe');
-    iframe.width = '100%';
-    iframe.height = '100%';
-    iframe.src = 'https://vine.co/v/OLYpnEjagqQ/embed/simple?audio=1';
-    iframe.frameborder = '0';
+    const video = document.createElement('video');
+    video.style.width = width + 'px';
+    video.style.height = height + 'px';
+    video.style.backgroundColor = 'black';
+    video.src = chrome.extension.getURL('/assets/' + videoName);
+    video.autoplay = true;
 
-    overlay.appendChild(iframe);
+    overlay.appendChild(video);
 
     $(OVERLAY_SELECTOR).remove();
     $videoContainer.append(overlay);
