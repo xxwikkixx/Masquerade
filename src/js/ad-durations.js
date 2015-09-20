@@ -15,7 +15,8 @@ export function getDurationInSeconds() {
   return new Promise((resolve, reject) => {
     let attempts = 0;
     const intervalRef = setInterval(() => {
-      if (attempts >= 10) return reject();
+      // Give up
+      if (attempts >= 10) return resolve(1000);
 
       let $duration = $(DURATION_SELECTOR);
       if ($duration.length > 0) {
