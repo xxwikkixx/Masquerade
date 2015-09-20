@@ -1,38 +1,21 @@
-import {
-  isOnVideoPage,
-  waitForAdToShow,
-  waitForAdToDisappear,
-  muteAd,
-  unmuteVideo,
-  putOverlayDiv,
-  removeOverlay,
-  hideControl,
-  showControl
-  //buttonClick
-} from './util';
+import { isOnVideoPage, waitForAdToShow, waitForAdToDisappear } from './util';
 import { subscribe as subscribeToVideoChange } from './page-watcher';
-import { embedOverlay, unembedOverlay } from './embedder';
+import { embedOverlay, unembedOverlay, clearAllOverlays } from './embedder';
+import { getDurationInSeconds } from './ad-durations';
 
 subscribeToVideoChange(() => {
   if (isOnVideoPage()) {
     // Get rid of existing overlays
-    unembedOverlay();
+    clearAllOverlays();
     // Start the regular logic
     waitForAdToShow()
-      .then(() => {
-        // The ad is visible, so mute that shit
-        muteAd();
-        embedOverlay();
-        hideControl();
-        // Wait for the ad to be gone
-        waitForAdToDisappear()
-          .then(() => {
-            // The ad is no longer visible, so unmute that shit
-            unmuteVideo();
-            unembedOverlay();
-            showControl();
-          });
+      .then(getDurationInSeconds)
+      .then(duration => {
+        // TODO get a video for this duration
+        return embedOverlay('somerandomvidelurl');
       })
-      .catch(() => null);
+      .then(waitForAdToDisappear)
+      .then(unembedOverlay)
+      .catch(err => console.error('Could not get the ad duration'));
   }
 });

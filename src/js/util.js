@@ -29,7 +29,7 @@ export function waitForAdToShow() {
           resolve();
         }
       }
-    }, 100);
+    }, 10);
   });
 }
 

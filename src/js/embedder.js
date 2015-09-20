@@ -1,31 +1,54 @@
-export function embedOverlay() {
-  const $videoContent = $('.html5-video-content');
-  const $videoContainer = $('.html5-video-container');
+import $ from 'jquery-browserify';
+import { muteAd, unmuteVideo, showControl, hideControl } from './util';
 
-  const height = $videoContent.innerHeight();
-  const width = $videoContent.innerWidth();
+const OVERLAY_CLASS = '___ad-overlay';
+const OVERLAY_SELECTOR = '.' + OVERLAY_CLASS;
 
-  const overlay = document.createElement('div');
-  overlay.className = '___ad-overlay';
-  overlay.style.position = 'relative';
-  overlay.style.width = width + 'px';
-  overlay.style.height = height + 'px';
-  overlay.style.top = 0;
-  overlay.style.left = 0;
-  overlay.style.backgroundColor = 'black';
+export function embedOverlay(videoName) {
+  return new Promise((resolve, reject) => {
+    muteAd();
+    hideControl();
 
-  const iframe = document.createElement('iframe');
-  iframe.width = '100%';
-  iframe.height = '100%';
-  iframe.src = 'https://vine.co/v/OLYpnEjagqQ/embed/simple?audio=1';
-  iframe.frameborder = '0';
+    const $videoContent = $('.html5-video-content');
+    const $videoContainer = $('.html5-video-container');
 
-  overlay.appendChild(iframe);
+    const height = $videoContent.innerHeight();
+    const width = $videoContent.innerWidth();
 
-  $('.___ad-overlay').remove();
-  $videoContainer.append(overlay);
+    const overlay = document.createElement('div');
+    overlay.className = OVERLAY_CLASS;
+    overlay.style.position = 'relative';
+    overlay.style.width = width + 'px';
+    overlay.style.height = height + 'px';
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.backgroundColor = 'black';
+
+    const iframe = document.createElement('iframe');
+    iframe.width = '100%';
+    iframe.height = '100%';
+    iframe.src = 'https://vine.co/v/OLYpnEjagqQ/embed/simple?audio=1';
+    iframe.frameborder = '0';
+
+    overlay.appendChild(iframe);
+
+    $(OVERLAY_SELECTOR).remove();
+    $videoContainer.append(overlay);
+
+    return resolve();
+  });
 }
 
 export function unembedOverlay() {
-  $('.___ad-overlay').remove();
+  return new Promise((resolve, reject) => {
+    showControl();
+    unmuteVideo();
+    clearAllOverlays();
+
+    return resolve();
+  });
+}
+
+export function clearAllOverlays() {
+  $(OVERLAY_SELECTOR).remove();
 }
