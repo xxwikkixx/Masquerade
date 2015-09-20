@@ -26,6 +26,7 @@ export function getDurationInSeconds() {
           let duration = (durationPartToNumber(match[1]) * 60) + (durationPartToNumber(match[2]));
           if (duration > 0) {
             clearInterval();
+            console.log(duration);
             return resolve(duration);
           } else {
             attempts++;

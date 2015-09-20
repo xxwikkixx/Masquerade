@@ -14,6 +14,6 @@ subscribeToVideoChange(() => {
       .then(duration => embedOverlay(video(duration)))
       .then(waitForAdToDisappear)
       .then(unembedOverlay)
-      .catch(err => console.error('Could not get the ad duration'));
+      .catch(err => console.error('Could not get the ad duration', err));
   }
 });

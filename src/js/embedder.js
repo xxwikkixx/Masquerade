@@ -28,7 +28,7 @@ export function embedOverlay(videoName) {
     video.style.width = width + 'px';
     video.style.height = height + 'px';
     video.style.backgroundColor = 'black';
-    video.src = ('http://addspace.cloudapp.net/' + videoName);
+    video.src = chrome.extension.getURL('/assets/'+videoName);
     video.autoplay = true;
 
     const plug = document.createElement('div');
