@@ -8,6 +8,7 @@ import {
   removeOverlay,
   hideControl,
   showControl
+  //buttonClick
 } from './util';
 
 if (isOnVideoPage()) {
@@ -17,6 +18,7 @@ if (isOnVideoPage()) {
       muteAd();
       putOverlayDiv();
       hideControl();
+      //buttonClick();
       // Add vine to the video here
       // TODO (John): add vine shit here
       // Wait for the ad to be gone
