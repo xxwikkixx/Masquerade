@@ -10,9 +10,10 @@ var gulp    = require('gulp-help')(require('gulp'), {
 /******************************* GULP MODULES ********************************/
 
 require('./gulp/js')(gulp);
+require('./gulp/css')(gulp);
 require('./gulp/manifest')(gulp);
 require('./gulp/assets')(gulp);
 
 /******************************** GULP TASKS *********************************/
 
-gulp.task('default', 'Builds all web application assets; when not in production, deploys server and watches for changes', ['js', 'manifest', 'assets']);
+gulp.task('default', 'Builds all web application assets; when not in production, deploys server and watches for changes', ['js', 'css', 'manifest', 'assets']);

@@ -26,12 +26,8 @@ export function waitForAdToShow() {
         reject('attempts_exceeded_show');
       } else {
         if (isAdVisible()) {
-          console.log("AD is visible");
           clearInterval(intervalRef);
           resolve();
-        } else {
-            var i = 1 + 1;
-            console.log("AD is not visible");
         }
       }
     }, 10);
@@ -61,17 +57,18 @@ export function unmuteVideo() {
   }
 }
 
-export function hideControl(){
-  $(".ytp-title ytp-title-extra-info").css("display", "none");
+export function hideControl() {
+  $('.ytp-title').hide();
   $(".ytp-chrome-bottom").hide();
-  $(".text-container ").hide();
+  $(".text-container").hide();
 }
 
-export function showControl(){
-  $(".ytp-title ytp-title-extra-info").css("visibility", "block");
+export function showControl() {
+  $('.ytp-title').show();
   $(".ytp-chrome-bottom").show();
+  $(".text-container").show();
 }
 
-export function removeOverlay(){
+export function removeOverlay() {
   $("#addshole").remove();
 }

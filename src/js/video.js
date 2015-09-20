@@ -1,7 +1,7 @@
 const TWO_MINUTES = ['hey.mp4','moonmen.mp4'];
 const ONE_MINUTE = ['pokemon.mp4', 'nigel.mp4'];
-const UNDER_50 = ['nigel.mp4', 'store.mp4', 'schifty.mp4', 'duck.mp4'];
-const UNDER_20 = ['Adele.mp4','schifty.mp4','duck.mp4'];
+const UNDER_50 = ['nigel.mp4', 'store.mp4', 'schwifty.mp4', 'duck.mp4'];
+const UNDER_20 = ['Adele.mp4','schwifty.mp4','duck.mp4'];
 
 function rand(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
