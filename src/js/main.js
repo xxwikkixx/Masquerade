@@ -21,6 +21,7 @@ subscribeToVideoChange(() => {
     waitForAdToShow()
       .then(() => {
         // The ad is visible, so mute that shit
+        console.log("AD is visible muting that shit");
         muteAd();
         embedOverlay();
         hideControl();

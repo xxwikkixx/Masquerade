@@ -23,5 +23,8 @@
         "management",
         "https://youtube.com/*",
         "https://www.youtube.com/*"
+    ],
+    "web_accessible_resources": [
+        "assets/*"
     ]
 }

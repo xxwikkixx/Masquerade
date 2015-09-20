@@ -13,7 +13,8 @@ export function isOnVideoPage() {
 }
 
 export function isAdVisible() {
-  return ($('.ytp-mini-progress-bar-container').css('display') !== 'none' && $(AD_SELECTOR).length > 0);
+  let result = ($('.ytp-mini-progress-bar-container').css('display') !== 'none' && $(AD_SELECTOR).length > 0);
+  return result;
 }
 
 export function waitForAdToShow() {
@@ -25,8 +26,12 @@ export function waitForAdToShow() {
         reject('attempts_exceeded_show');
       } else {
         if (isAdVisible()) {
+          console.log("AD is visible");
           clearInterval(intervalRef);
           resolve();
+        } else {
+            var i = 1 + 1;
+            console.log("AD is not visible");
         }
       }
     }, 100);
@@ -34,6 +39,7 @@ export function waitForAdToShow() {
 }
 
 export function muteAd() {
+  debugger;
   if ($(VOLUME_PANEL_SELECTOR).attr('aria-valuetext').indexOf('muted') === -1) {
     $(MUTE_BUTTON_SELECTOR).click();
   }

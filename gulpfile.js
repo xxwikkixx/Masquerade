@@ -11,7 +11,8 @@ var gulp    = require('gulp-help')(require('gulp'), {
 
 require('./gulp/js')(gulp);
 require('./gulp/manifest')(gulp);
+require('./gulp/assets')(gulp);
 
 /******************************** GULP TASKS *********************************/
 
-gulp.task('default', 'Builds all web application assets; when not in production, deploys server and watches for changes', ['js', 'manifest']);
+gulp.task('default', 'Builds all web application assets; when not in production, deploys server and watches for changes', ['js', 'manifest', 'assets']);
