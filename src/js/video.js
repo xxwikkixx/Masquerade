@@ -1,20 +1,18 @@
 const TWO_MINUTES = ['hey.mp4','moonmen.mp4'];
-const ONE_MINUTE = ['pokemon.mp4', 'nigel.mp4'];
-const UNDER_50 = ['icecream.mp4','nigel.mp4', 'store.mp4', 'schwifty.mp4', 'duck.mp4', 'gi-joe-meme.mp4'];
-const UNDER_20 = ['adele.mp4','schwifty.mp4','duck.mp4', 'dog.mp4'];
+const ONE_MINUTE = ['pokemon.mp4', 'nigel.mp4', 'shaq.mp4', 'doge.mp4', 'band.mp4', 'baseball.mp4','movie.mp4'];
+const UNDER_50 = ['shaq.mp4','icecream.mp4','nigel.mp4', 'store.mp4', 'schwifty.mp4', 'duck.mp4', 'gi-joe-meme.mp4', 'band.mp4', 'baseball.mp4', 'movie.mp4', 'adele.mp4','schwifty.mp4','duck.mp4', 'dog.mp4'];
 
-function rand(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+let counter = Math.floor(Math.random() * 100000);
 
 export function video(time) {
+    counter++;
     if (time >= 100) {
-        return TWO_MINUTES[rand(0, TWO_MINUTES.length - 1)];
+        return TWO_MINUTES[counter % TWO_MINUTES.length];
     }else if (time >= 50 ) {
-        return ONE_MINUTE[rand(0, ONE_MINUTE.length - 1)];
+        return ONE_MINUTE[counter % ONE_MINUTE.length];
     }else if (time >= 30) {
-        return UNDER_50[rand(0, UNDER_50.length - 1)];
+        return UNDER_50[counter % UNDER_50.length];
     }else {
-        return UNDER_20[rand(0, UNDER_20.length - 1)];
+        return UNDER_50[counter % UNDER_50.length];
     }
 }
