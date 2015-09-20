@@ -1,5 +1,4 @@
 export function embedOverlay() {
-  debugger;
   const $videoContent = $('.html5-video-content');
   const $videoContainer = $('.html5-video-container');
 
@@ -14,7 +13,7 @@ export function embedOverlay() {
   overlay.style.top = 0;
   overlay.style.left = 0;
   overlay.style.backgroundColor = 'black';
-  overlay.src = chrome.extension.getURL('/assets/duck.mp4');
+  overlay.src = chrome.extension.getURL('/assets/dog.mp4');
   overlay.autoplay = true;
   
   /*
