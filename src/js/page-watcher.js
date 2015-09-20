@@ -25,4 +25,4 @@ setInterval(() => {
     console.log('onVideoChanged');
     onVideoChanged();
   }
-}, 100);
+}, 17);

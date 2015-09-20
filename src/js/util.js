@@ -34,12 +34,11 @@ export function waitForAdToShow() {
             console.log("AD is not visible");
         }
       }
-    }, 100);
+    }, 10);
   });
 }
 
 export function muteAd() {
-  debugger;
   if ($(VOLUME_PANEL_SELECTOR).attr('aria-valuetext').indexOf('muted') === -1) {
     $(MUTE_BUTTON_SELECTOR).click();
   }
