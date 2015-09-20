@@ -22,7 +22,6 @@ setInterval(() => {
   let videoId = getVideoId();
   if (currentVideoId !== videoId) {
     currentVideoId = videoId;
-    console.log('onVideoChanged');
     onVideoChanged();
   }
 }, 17);

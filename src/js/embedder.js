@@ -31,7 +31,15 @@ export function embedOverlay(videoName) {
     video.src = ('http://addspace.cloudapp.net/' + videoName);
     video.autoplay = true;
 
+    const plug = document.createElement('div');
+    plug.className = '__plug';
+    plug.innerHTML = '<div class="logo">Masquer<span>ad</span>e</div><div class="sep"></div><div class="msg">Ad Mask In Progress</div>';
+    plug.style.position = 'absolute';
+    plug.style.top = '0';
+    plug.style.left = '0';
+
     overlay.appendChild(video);
+    overlay.appendChild(plug);
 
     $(OVERLAY_SELECTOR).remove();
     $videoContainer.append(overlay);
