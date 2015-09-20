@@ -4,7 +4,7 @@ const VIDEO_PAGE_REGEX        = /^\/?watch$/;
 const AD_SELECTOR             = '.html5-video-player.ad-showing';
 const VOLUME_PANEL_SELECTOR   = '.html5-video-player .ytp-volume-panel';
 const MUTE_BUTTON_SELECTOR    = '.html5-video-player .ytp-mute-button';
-const AD_CHECK_ATTEMPTS_MAX   = 40;
+const AD_CHECK_ATTEMPTS_MAX   = 100;
 
 export function isOnVideoPage() {
   let path = window.location.pathname || '';
@@ -12,7 +12,6 @@ export function isOnVideoPage() {
 }
 
 export function isAdVisible() {
-  console.log('$(AD_SELECTOR).length', $(AD_SELECTOR).length);
   return $(AD_SELECTOR).length > 0;
 }
 
@@ -29,7 +28,7 @@ export function waitForAdToShow() {
           resolve();
         }
       }
-    }, 50);
+    }, 100);
   });
 }
 
@@ -47,7 +46,7 @@ export function waitForAdToDisappear() {
         clearInterval(intervalRef);
         resolve();
       }
-    }, 50);
+    }, 100);
   });
 }
 
@@ -58,7 +57,6 @@ export function unmuteVideo() {
 }
 
 export function putOverlayDiv() {
-  console.log('shit dont work');
   // 1. Get the width and height of the video tag
   var height = $(".html5-video-content").innerHeight();
   console.log(height);
