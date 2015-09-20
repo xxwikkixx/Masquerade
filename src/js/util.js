@@ -78,7 +78,7 @@ export function putOverlayDiv() {
   iframe.src = "https://vine.co/v/OLYpnEjagqQ/embed/simple?audio=1";
   iframe.frameborder = "0";
   overlay.appendChild(iframe);
-
+  //document.getElementsByClassName(".play-button").click();
 /*
   var videoElement = document.createElement("video");
   videoElement.preload = "auto";
@@ -99,8 +99,14 @@ export function putOverlayDiv() {
 
 //ytp-title ytp-title-extra-info
 //"ytp-chrome-bottom
+//play-button
   */
 }
+
+export function buttonClick(){
+  document.getElementByClassName(".play-button").click();
+}
+
 
 export function hideControl(){
   $(".ytp-title ytp-title-extra-info").css("display", "none");

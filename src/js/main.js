@@ -8,10 +8,11 @@ import {
   removeOverlay,
   hideControl,
   showControl
+  //buttonClick
 } from './util';
 import { subscribe as subscribeToVideoChange } from './page-watcher';
 
-function handleVideoChanged() {
+subscribeToVideoChange(() => {
   if (isOnVideoPage()) {
     waitForAdToShow()
       .then(() => {
@@ -30,6 +31,4 @@ function handleVideoChanged() {
       })
       .catch(() => null);
   }
-}
-
-subscribeToVideoChange(handleVideoChanged);
+});
